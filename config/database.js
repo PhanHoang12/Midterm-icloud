@@ -28,3 +28,5 @@ module.exports = {
   readConnection,
   writeConnection
 };
+
+// Separate connections for read-only and write-only database users
