@@ -1,0 +1,86 @@
+<h2>Thêm sách mới</h2>
+
+<form method="POST" action="/books">
+    <div>
+        <label>Mã sản phẩm:</label>
+        <input
+            type="text"
+            name="productCode"
+            placeholder="Ví dụ: 204001"
+            required
+        >
+    </div>
+
+    <br>
+
+    <div>
+        <label>Tên sách:</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="Tên sách"
+            required
+        >
+    </div>
+
+    <br>
+
+    <div>
+        <label>Giá:</label>
+        <input
+            type="number"
+            name="price"
+            min="0"
+            placeholder="Giá sách"
+            required
+        >
+    </div>
+
+    <br>
+
+    <button type="submit">
+        Thêm sách
+    </button>
+</form>
+
+<hr>
+
+<h2>Danh sách sách</h2>
+
+<h2>Danh sách sách</h2>
+
+{{#if books.length}}
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Tên sách</th>
+            <th>Giá gốc</th>
+            <th>VAT</th>
+            <th>Giá sau thuế</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {{#each books}}
+
+        <tr>
+            <td>{{productCode}}</td>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td>{{vat}}%</td>
+            <td>{{priceAfterTax}}</td>
+        </tr>
+
+        {{/each}}
+
+    </tbody>
+</table>
+
+{{else}}
+
+<p>Chưa có sách nào trong hệ thống.</p>
+
+{{/if}}
