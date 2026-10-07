@@ -17,6 +17,8 @@ const { MongoStore } = require("connect-mongo");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+// Store Express sessions centrally in MongoDB Atlas
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
